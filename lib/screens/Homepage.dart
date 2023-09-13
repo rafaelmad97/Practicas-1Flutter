@@ -1,32 +1,47 @@
 import 'package:flutter/cupertino.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
+  @override
+  State<StatefulWidget> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int _counter = 100;
+
+  onPressResetCounter() => setState(() => _counter = 0);
+  onPressIncrementCounter() => setState(() => _counter++);
+  onPressDecrementCounter() => setState(() => _counter--);
 
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavigationBar(
-        middle: Text("Contador"),
-        trailing: CupertinoButton(child: Text("Reset"), onPressed: null),
-      ),
+      navigationBar: CupertinoNavigationBar(
+          middle: const Text("Contador"),
+          trailing: GestureDetector(
+            child: Text("Reset"),
+            onTap: onPressResetCounter,
+          )),
       child: Center(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           Column(
-            children: const <Widget>[
-              Text("Numero de Clicks",
+            children: <Widget>[
+              const Text("Numero de Clicks",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-              Text("0",
+              Text("$_counter",
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w200)),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: const <Widget>[
-              CupertinoButton(child: Text("+1"), onPressed: null),
-              CupertinoButton(child: Text("-1"), onPressed: null)
+            children: <Widget>[
+              CupertinoButton.filled(
+                  child: Text("+1"), onPressed: onPressIncrementCounter),
+              CupertinoButton.filled(
+                  child: Text("-1"), onPressed: onPressDecrementCounter)
             ],
           )
         ],
