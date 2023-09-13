@@ -5,8 +5,22 @@ class Homepage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: Text("Android")),
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const <Widget>[
+            Text(
+              "Numero de clicks",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            ),
+            Text(
+              "0",
+              style: TextStyle(fontWeight: FontWeight.w300, fontSize: 18),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
