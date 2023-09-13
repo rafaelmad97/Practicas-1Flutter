@@ -7,9 +7,6 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CupertinoApp(
-        title: "iosDEV",
-        theme: CupertinoThemeData(primaryColor: Colors.red),
-        home: HomeScreen());
+    return const CupertinoApp(title: "iosDEV", home: HomeScreen());
   }
 }
