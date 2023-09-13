@@ -6,9 +6,23 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: "androidApp",
-      home: Homepage(),
+      theme: ThemeData(
+          useMaterial3: true,
+          colorScheme: const ColorScheme(
+              onPrimary: Colors.white,
+              onSecondary: Colors.white,
+              onError: Colors.white,
+              onBackground: Colors.black,
+              onSurface: Colors.white,
+              surface: Colors.black,
+              primary: Colors.red,
+              secondary: Colors.blue,
+              brightness: Brightness.light,
+              background: Colors.white,
+              error: Colors.redAccent)),
+      home: const Homepage(),
       debugShowCheckedModeBanner: false,
     );
   }
