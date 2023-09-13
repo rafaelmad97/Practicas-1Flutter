@@ -20,8 +20,8 @@ class _HomeScreenState extends State<HomeScreen> {
       navigationBar: CupertinoNavigationBar(
           middle: const Text("Contador"),
           trailing: GestureDetector(
-            child: Text("Reset"),
             onTap: onPressResetCounter,
+            child: const Text("Reset"),
           )),
       child: Center(
           child: Column(
@@ -32,16 +32,17 @@ class _HomeScreenState extends State<HomeScreen> {
               const Text("Numero de Clicks",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
               Text("$_counter",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w200)),
+                  style: const TextStyle(
+                      fontSize: 16, fontWeight: FontWeight.w200)),
             ],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
               CupertinoButton.filled(
-                  child: Text("+1"), onPressed: onPressIncrementCounter),
+                  onPressed: onPressIncrementCounter, child: const Text("+1")),
               CupertinoButton.filled(
-                  child: Text("-1"), onPressed: onPressDecrementCounter)
+                  onPressed: onPressDecrementCounter, child: const Text("-1"))
             ],
           )
         ],
