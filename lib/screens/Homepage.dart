@@ -5,8 +5,11 @@ class Homepage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(child: Text("Android")),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("titulo de prueba"),
+      ),
+      body: const Center(child: Text("Android")),
     );
   }
 }
