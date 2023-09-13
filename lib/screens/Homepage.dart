@@ -8,7 +8,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _counter = 100;
+  int _counter = 0;
 
   onPressResetCounter() => setState(() => _counter = 0);
   onPressIncrementCounter() => setState(() => _counter++);
