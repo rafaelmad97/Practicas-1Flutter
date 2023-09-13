@@ -12,15 +12,21 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   int _counter = 0;
 
-  void onPressIncrementcounter() => setState(() => _counter++);
-
-  int getCounter() => _counter;
+  void onPressIncrementcounter() => setState(() {
+        _counter++;
+      });
+  void onPressResetcounter() => setState(() {
+        _counter = 0;
+      });
+  void onPressDecrementcounter() => setState(() {
+        _counter--;
+      });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text("titulo de prueba"),
+          title: const Text("Primer App Flutter"),
         ),
         body: Center(
           child: Column(
@@ -33,7 +39,8 @@ class _HomepageState extends State<Homepage> {
               ),
               Text(
                 '$_counter',
-                style: TextStyle(fontWeight: FontWeight.w300, fontSize: 18),
+                style:
+                    const TextStyle(fontWeight: FontWeight.w300, fontSize: 18),
               )
             ],
           ),
@@ -45,15 +52,15 @@ class _HomepageState extends State<Homepage> {
             children: <Widget>[
               FloatingActionButton(
                 onPressed: onPressIncrementcounter,
-                child: const Icon(Icons.add),
+                child: const Icon(Icons.exposure_plus_1),
+              ),
+              FloatingActionButton.extended(
+                onPressed: onPressResetcounter,
+                label: const Text("Reset"),
               ),
               FloatingActionButton(
-                onPressed: onPressIncrementcounter,
-                child: const Icon(Icons.add),
-              ),
-              FloatingActionButton(
-                onPressed: onPressIncrementcounter,
-                child: const Icon(Icons.add),
+                onPressed: onPressDecrementcounter,
+                child: const Icon(Icons.exposure_minus_1),
               ),
             ]));
   }
